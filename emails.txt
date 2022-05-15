@@ -1,0 +1,4 @@
+Bruno,rocharocha@gmail.com
+Maria,MariaMadalena@hotmail.com
+Joao,jBola@uol.com.br
+Carlos,carlitos344@bol.com
