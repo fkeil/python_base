@@ -35,10 +35,11 @@ if arguments[0] not in cmds:
 
 if arguments[0] == "read":
     for line in open(filepath):
-        title, tag, text = line.split("\t")
+        user, timestamp, title, tag, text = line.split("\t")
         if tag.lower() == arguments[1].lower():
            print(f"title : {title}")
            print(f"text : {text}")
+           print(f"by: {user} in {timestamp}")
            print("-"* 30)
            print()
 
@@ -51,6 +52,8 @@ if arguments[0] == "new":
     else:
         title = arguments[1]
     text = [
+        f"{user}",
+        f"{timestamp}",
         f"{title}",
         input("please add a tag to your note: ").strip(),
         input("type your note:\n").strip(),
