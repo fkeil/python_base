@@ -19,24 +19,24 @@ filename = arguments[0]
 templatename = arguments[1]
 
 path = os.curdir
-filepath = os.path.join(path,filename)
+filepath = os.path.join(path, filename)
 templatepath = os.path.join(path, templatename)
 
 clientes = []
 for line in open(filepath):
     name, email = line.split(",")
-    
+
     # TODO: Substituir por servidor smtp para envio de emails
-    print (f"Enviando email para: {email}")
+    print(f"Enviando email para: {email}")
     print(
         open(templatepath).read()
-        %{
-            "nome" : name,
-            "produto" : "camera",
-            "texto" : "fabricados de maneira ecologica",
-            "link" : "https://bit.ly/uos80Us",
-            "quantidade" : 2,
-            "preco" : 15.42,
+        % {
+            "nome": name,
+            "produto": "camera",
+            "texto": "fabricados de maneira ecologica",
+            "link": "https://bit.ly/uos80Us",
+            "quantidade": 2,
+            "preco": 15.42,
         }
     )
     print("-" * 50)

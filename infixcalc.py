@@ -33,16 +33,16 @@ import os
 from datetime import datetime
 
 variables = {
-    "opr" : None,
-    "n1" : None,
-    "n2" : None,
+    "opr": None,
+    "n1": None,
+    "n2": None,
 }
 
 operacoes = {
-    "sum" : "+",
-    "sub" : "-",
-    "mul" : "*",
-    "div" : "/",
+    "sum": "+",
+    "sub": "-",
+    "mul": "*",
+    "div": "/",
 }
 
 arguments = sys.argv[1:]
@@ -71,7 +71,7 @@ if operation not in valid_operations:
 validated_nums = []
 for num in nums:
     # TODO: repeticao while + exeptions
-    if not num.replace(".","").isdigit():
+    if not num.replace(".", "").isdigit():
         print(f"Numero invalido '{num}'!")
         sys.exit(1)
     if "." in num:
@@ -83,21 +83,23 @@ for num in nums:
 n1, n2 = validated_nums
 
 # TODO: Usar dicionario de funcoes
-if operation == 'sum':
+if operation == "sum":
     result = n1 + n2
-if operation == 'sub':
+if operation == "sub":
     result = n1 - n2
-if operation == 'mul':
+if operation == "mul":
     result = n1 * n2
-if operation == 'div':
+if operation == "div":
     result = n1 / n2
 
 path = os.curdir
 filepath = os.path.join(path, "infixcalc.log")
 timestamp = datetime.now().isoformat()
-user = os.getenv('USER', 'anonymous' )
+user = os.getenv("USER", "anonymous")
 
 with open(filepath, "a") as file_:
-    file_.write(f"{user} || {timestamp} ---> {operation}, {n1}, {n2} = {result}\n")
+    file_.write(
+        f"{user} || {timestamp} ---> {operation}, {n1}, {n2} = {result}\n"
+    )
 
 print(f"O resultado da operacao e {result}")

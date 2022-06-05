@@ -24,8 +24,8 @@ import os
 import sys
 
 arguments = {
-    "lang":None,
-    "count":1,    
+    "lang": None,
+    "count": 1,
 }
 
 
@@ -45,7 +45,7 @@ if current_language is None:
     if "LANG" in os.environ:
         current_language = os.getenv("LANG")
     else:
-        current_language = input ("Choose a languague from the list: ")
+        current_language = input("Choose a languague from the list: ")
 
 current_language = current_language[:5]
 
@@ -54,8 +54,6 @@ msg = {
     "pt_BR": "Ola, Mundo!",
     "it_IT": "Ciao, Mondo!",
     "es_SP": "Hola, Mundo!",
-    "fr_FR":  "Bonjour, Monde!",
+    "fr_FR": "Bonjour, Monde!",
 }
-print(
-    msg[current_language] * int(arguments["count"])
-)
+print(msg[current_language] * int(arguments["count"]))

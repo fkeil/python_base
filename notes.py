@@ -21,7 +21,7 @@ from datetime import datetime
 path = os.curdir
 filepath = os.path.join(path, "notes.txt")
 
-cmds = ("read","new")
+cmds = ("read", "new")
 
 arguments = sys.argv[1:]
 if not arguments:
@@ -37,16 +37,16 @@ if arguments[0] == "read":
     for line in open(filepath):
         user, timestamp, title, tag, text = line.split("\t")
         if tag.lower() == arguments[1].lower():
-           print(f"title : {title}")
-           print(f"text : {text}")
-           print(f"by: {user} in {timestamp}")
-           print("-"* 30)
-           print()
+            print(f"title : {title}")
+            print(f"text : {text}")
+            print(f"by: {user} in {timestamp}")
+            print("-" * 30)
+            print()
 
 if arguments[0] == "new":
-    user = os.getenv('USER','anonymous')
+    user = os.getenv("USER", "anonymous")
     timestamp = datetime.now().isoformat()
-    if len(arguments) == 1 :
+    if len(arguments) == 1:
         title = input("Please provide a note title: ")
 
     else:
@@ -59,4 +59,4 @@ if arguments[0] == "new":
         input("type your note:\n").strip(),
     ]
     with open(filepath, "a") as file_:
-        file_.write("\t".join(text)+ "\n")
+        file_.write("\t".join(text) + "\n")
